@@ -4,7 +4,7 @@ const Course = ({ singleCourse }) => {
   console.log(singleCourse);
   const { title, image_url } = singleCourse;
   return (
-    <div className='card w-96 bg-base-100 shadow-xl'>
+    <div className='card w-80 bg-base-100 shadow-xl'>
       <figure>
         <img src={image_url} alt='Shoes' />
       </figure>

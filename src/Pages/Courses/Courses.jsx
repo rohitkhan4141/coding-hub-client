@@ -13,7 +13,7 @@ const Courses = () => {
         ))}
       </div>
       <div className='lg:col-start-2 lg:col-end-7 grid-cols-1 bg-red-400'>
-        <div className='grid lg:grid-cols-2 w-10/12 mx-auto my-6 gap-10 place-self-center self-center justify-items-center'>
+        <div className='grid lg:grid-cols-3 gap-y-10  mx-auto my-10  place-self-center self-center justify-items-center px-3'>
           {courses.map((course) => (
             <Course singleCourse={course} />
           ))}
