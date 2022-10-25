@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Shared/Login/Login";
@@ -30,6 +31,14 @@ export const router = createBrowserRouter([
             <Profile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/courses",
+        element: <Courses />,
+        loader: async () =>
+          fetch(
+            "https://assingment-10-serverside-rohitkhan4141.vercel.app/courses"
+          ),
       },
     ],
   },
