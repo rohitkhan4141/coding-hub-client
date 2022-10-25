@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Course from "../../components/Course/Course";
+import "./Courses.css";
 
 const Courses = () => {
   const courses = useLoaderData();
@@ -12,8 +13,8 @@ const Courses = () => {
           <p>{course.title}</p>
         ))}
       </div>
-      <div className='lg:col-start-2 lg:col-end-7 grid-cols-1 bg-red-400'>
-        <div className='grid lg:grid-cols-3 gap-y-10  mx-auto my-10  place-self-center self-center justify-items-center px-3'>
+      <div className='lg:col-start-2 lg:col-end-7 grid-cols-1 bg-slate-200'>
+        <div className='courses-container grid lg:grid-cols-3 md:grid-cols-2 gap-y-10  mx-auto my-10  place-self-center self-center justify-items-center px-3'>
           {courses.map((course) => (
             <Course singleCourse={course} />
           ))}
