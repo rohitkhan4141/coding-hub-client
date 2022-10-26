@@ -1,9 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const Header = () => {
+  const [darkmode, setDarkMode] = useState(false);
+  const hendleTheme = (event) => {
+    event.preventDefault();
+    const checked = event.target.checked;
+    setDarkMode(!checked);
+  };
   const { logout, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -50,6 +56,14 @@ const Header = () => {
               <Link to='/faq'>FAQ</Link>
             </li>
             <li>
+              <div className='form-control'>
+                <label className='label cursor-pointer'>
+                  <span className='label-text text-base mr-1'>Theme </span>
+                  <input type='checkbox' className='toggle toggle-primary' />
+                </label>
+              </div>
+            </li>
+            <li>
               <Link to='/login'>Login</Link>
             </li>
             <li>
@@ -77,11 +91,20 @@ const Header = () => {
           <li>
             <Link to='/courses'>Courses</Link>
           </li>
+          <li>
+            <div className='form-control'>
+              <label className='label cursor-pointer'>
+                <span className='label-text text-base mr-1'>Theme </span>
+                <input type='checkbox' className='toggle toggle-primary' />
+              </label>
+            </div>
+          </li>
           {user ? (
             <li>
               <button
                 onClick={handleLogout}
-                className='btn btn-active btn-ghost'
+                className='btn btn-outline btn-success'
+                checked={darkmode}
               >
                 Logout
               </button>
