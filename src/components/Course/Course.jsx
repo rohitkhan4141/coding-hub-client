@@ -12,9 +12,9 @@ const Course = ({ singleCourse }) => {
       <div className='card-body'>
         <h2 className='card-title'>{title}</h2>
         <>
-          {details.length > 100 ? (
+          {details.length > 50 ? (
             <p>
-              {details.slice(0, 100) + "...  "}{" "}
+              {details.slice(0, 50) + "...  "}{" "}
               <Link className='text-blue-600' to={`/courses/${_id}`}>
                 Read more
               </Link>

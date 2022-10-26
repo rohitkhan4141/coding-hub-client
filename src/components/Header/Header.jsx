@@ -13,7 +13,7 @@ const Header = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div className='navbar bg-base-100 justify-between'>
+    <div className='navbar bg-base-100 justify-between border-b-gray-100'>
       <div className='navbar-start'>
         <div className='dropdown'>
           <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -43,6 +43,9 @@ const Header = () => {
               <Link to='/profile'>Profile</Link>
             </li>
             <li>
+              <Link to='/courses'>Profile</Link>
+            </li>
+            <li>
               <Link to='/login'>Login</Link>
             </li>
             <li>
@@ -59,6 +62,9 @@ const Header = () => {
           </li>
           <li>
             <Link to='/profile'>Profile</Link>
+          </li>
+          <li>
+            <Link to='/courses'>Courses</Link>
           </li>
           {user ? (
             <li>
