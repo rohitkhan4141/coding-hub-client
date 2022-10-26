@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Four04 from "../components/404/Four04";
 import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Main from "../Layout/Main";
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
           fetch(
             `https://assingment-10-serverside-rohitkhan4141.vercel.app/courses/${params.id}`
           ),
+        errorElement: <Four04></Four04>,
       },
       {
         path: "/checkout/:id",
@@ -71,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq />,
+      },
+      {
+        path: "*",
+        element: <Four04 />,
       },
     ],
   },

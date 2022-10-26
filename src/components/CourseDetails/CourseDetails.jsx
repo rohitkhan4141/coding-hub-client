@@ -41,11 +41,17 @@ const CourseDetails = () => {
             <div className='flex flex-col gap-4 md:flex-row md:justify-between md:items-center '>
               <div className='flex items-center gap-4'>
                 <div>
-                  <img className='w-16 rounded-full' src={author.img} alt='' />
+                  <img
+                    className='w-16 rounded-full'
+                    src={author?.img ? author?.img : ""}
+                    alt=''
+                  />
                 </div>
                 <div>
-                  <h5>{author.name}</h5>
-                  <p>{author.published_date}</p>
+                  <h5>{author?.name ? author?.name : "Anny"}</h5>
+                  <p>
+                    {author?.published_date ? author?.published_date : "2020"}
+                  </p>
                 </div>
               </div>
               <div>
