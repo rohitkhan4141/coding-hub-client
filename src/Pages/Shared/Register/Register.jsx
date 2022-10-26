@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext";
 
 const Register = () => {
-  const { createUser, googleAuth, githubAuth } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { createUser, googleAuth, githubAuth, updateUserProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const hendleSubmit = (event) => {
     event.preventDefault();
@@ -12,14 +14,31 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const name = form.name.value;
+    const photoUrl = form.photoURL.value;
 
     createUser(email, password)
       .then((userdata) => {
         const user = userdata.user;
-        console.log(user);
+        form.reset();
+        setError("");
+        handleUpdateUserProfile(name, photoUrl);
+        // console.log(user);
         navigate("/");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+      });
+  };
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
   const googleLogIn = () => {
     googleAuth()
@@ -51,6 +70,17 @@ const Register = () => {
                 type='text'
                 name='name'
                 placeholder='name'
+                className='input input-bordered'
+              />
+            </div>
+            <div className='form-control'>
+              <label className='label'>
+                <span className='label-text'>Photo Url</span>
+              </label>
+              <input
+                type='text'
+                name='photoURL'
+                placeholder='photo Url'
                 className='input input-bordered'
               />
             </div>
@@ -95,6 +125,7 @@ const Register = () => {
               />
               <FaFacebookF className='text-center cursor-pointer hover:text-blue-500' />
             </div>
+            <span className='text-red-400'>{error}</span>
             <div className='form-control mt-6'>
               <button className='btn btn-primary'>Register</button>
             </div>

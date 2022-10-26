@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { login, googleAuth, githubAuth, fbAuth } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,10 +16,13 @@ const Login = () => {
     const password = form.password.value;
     login(email, password)
       .then((user) => {
+        form.reset();
+        setError("");
         navigate(from, { replace: true });
       })
       .catch((err) => {
         console.error(err);
+        setError(err.message);
       });
   };
   const googleLogIn = () => {
@@ -94,6 +98,7 @@ const Login = () => {
                 onClick={fbLogIn}
               />
             </div>
+            <span className='text-red-400'>{error}</span>
             <div className='form-control mt-6'>
               <button className='btn btn-primary'>Login</button>
             </div>
