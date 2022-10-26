@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Main from "../Layout/Main";
 import Courses from "../Pages/Courses/Courses";
@@ -44,6 +45,18 @@ export const router = createBrowserRouter([
       {
         path: "/courses/:id",
         element: <CourseDetails />,
+        loader: async ({ params }) =>
+          fetch(
+            `https://assingment-10-serverside-rohitkhan4141.vercel.app/courses/${params.id}`
+          ),
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <CheckOut />
+          </PrivateRoute>
+        ),
         loader: async ({ params }) =>
           fetch(
             `https://assingment-10-serverside-rohitkhan4141.vercel.app/courses/${params.id}`
