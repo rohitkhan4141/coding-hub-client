@@ -6,7 +6,6 @@ import { AuthContext } from "../../Contexts/AuthContext";
 
 const Header = () => {
   const { logout, user } = useContext(AuthContext);
-  // console.log(user.displayName, user.photoURL);
   const navigate = useNavigate();
   const handleLogout = () => {
     logout()
@@ -46,7 +45,7 @@ const Header = () => {
               <Link to='/blogs'>Blogs</Link>
             </li>
             <li>
-              <Link to='/courses'>Profile</Link>
+              <Link to='/courses'>Courses</Link>
             </li>
             <li>
               <Link to='/faq'>FAQ</Link>
@@ -169,8 +168,6 @@ const Header = () => {
               </li>
             </>
           )}
-
-          {/* responsive r shomoy logout login kam kore kina dekha lagbe */}
         </ul>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext";
 
@@ -15,6 +15,7 @@ const Register = () => {
     const password = form.password.value;
     const name = form.name.value;
     const photoUrl = form.photoURL.value;
+    console.log(name, photoUrl);
 
     createUser(email, password)
       .then((userdata) => {
@@ -125,7 +126,6 @@ const Register = () => {
                 className='text-center cursor-pointer hover:text-blue-500'
                 onClick={githubLogIn}
               />
-              <FaFacebookF className='text-center cursor-pointer hover:text-blue-500' />
             </div>
             <span className='text-red-400'>{error}</span>
             <div className='form-control mt-6'>

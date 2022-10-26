@@ -32,7 +32,7 @@ const CourseDetails = () => {
         </div>
       </div>
       <div ref={ref}>
-        <div className='flex flex-col gap-10 items-center lg:flex-row lg:justify-evenly lg:shadow-md shadow-stone-300 py-10 rounded-md md:bg-slate-100'>
+        <div className='flex flex-col gap-10 items-center lg:flex-row lg:justify-evenly lg:shadow-md shadow-stone-300 pt-20 lg:pb-10 pb-16 mb-16 rounded-md md:bg-slate-100'>
           <div className='max-w-sm'>
             <img className='rounded-md' src={image_url} alt='' />
           </div>

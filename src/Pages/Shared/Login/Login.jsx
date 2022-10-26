@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthContext";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { login, googleAuth, githubAuth, fbAuth } = useContext(AuthContext);
+  const { login, googleAuth, githubAuth } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -39,13 +39,7 @@ const Login = () => {
       })
       .catch((err) => console.error(err));
   };
-  const fbLogIn = () => {
-    fbAuth()
-      .then(() => {
-        navigate(from, { replace: true });
-      })
-      .catch((err) => console.error(err));
-  };
+
   return (
     <div className='hero min-h-screen bg-base-200'>
       <div className='hero-content flex-col'>
@@ -94,10 +88,6 @@ const Login = () => {
               <FaGithub
                 className='text-center cursor-pointer hover:text-blue-500'
                 onClick={githubLogIn}
-              />
-              <FaFacebookF
-                className='text-center cursor-pointer hover:text-blue-500'
-                onClick={fbLogIn}
               />
             </div>
             <span className='text-red-400'>{error}</span>
