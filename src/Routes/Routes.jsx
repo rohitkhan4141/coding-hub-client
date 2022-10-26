@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import Courses from "../Pages/Courses/Courses";
 import Home from "../Pages/Home/Home";
 import Profile from "../Pages/Profile/Profile";
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
           fetch(
             `https://assingment-10-serverside-rohitkhan4141.vercel.app/courses/${params.id}`
           ),
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
     ],
   },
