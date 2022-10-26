@@ -1,16 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { BsFillPersonFill } from "react-icons/Bs";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext";
 
 const Header = () => {
-  const [darkmode, setDarkMode] = useState(false);
-  const hendleTheme = (event) => {
-    event.preventDefault();
-    const checked = event.target.checked;
-    setDarkMode(!checked);
-  };
   const { logout, user } = useContext(AuthContext);
+  // console.log(user.displayName, user.photoURL);
   const navigate = useNavigate();
   const handleLogout = () => {
     logout()
@@ -63,12 +59,47 @@ const Header = () => {
                 </label>
               </div>
             </li>
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/register'>Register</Link>
-            </li>
+            {user ? (
+              <li>
+                <div>
+                  <div
+                    className='tooltip'
+                    data-tip={
+                      user?.displayName
+                        ? user?.displayName
+                        : "Havent Share Name"
+                    }
+                  >
+                    {user?.photoURL ? (
+                      <img
+                        className='w-10 h-10 rounded-full'
+                        src={user?.photoURL ? user.photoURL : ""}
+                        alt=''
+                      />
+                    ) : (
+                      <BsFillPersonFill />
+                    )}
+                  </div>
+
+                  <button
+                    onClick={handleLogout}
+                    className='btn btn-outline btn-success'
+                    checked
+                  >
+                    Logout
+                  </button>
+                </div>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link to='/login'>Login</Link>
+                </li>
+                <li>
+                  <Link to='/register'>Register</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
@@ -95,19 +126,38 @@ const Header = () => {
             <div className='form-control'>
               <label className='label cursor-pointer'>
                 <span className='label-text text-base mr-1'>Theme </span>
-                <input type='checkbox' className='toggle toggle-primary' />
+                <input type='checkbox' className='toggle toggle-primary mt-2' />
               </label>
             </div>
           </li>
           {user ? (
             <li>
-              <button
-                onClick={handleLogout}
-                className='btn btn-outline btn-success'
-                checked={darkmode}
-              >
-                Logout
-              </button>
+              <div>
+                <div
+                  className='tooltip'
+                  data-tip={
+                    user?.displayName ? user?.displayName : "Havent Share Name"
+                  }
+                >
+                  {user?.photoURL ? (
+                    <img
+                      className='w-10 h-10 rounded-full'
+                      src={user?.photoURL ? user.photoURL : ""}
+                      alt=''
+                    />
+                  ) : (
+                    <BsFillPersonFill />
+                  )}
+                </div>
+
+                <button
+                  onClick={handleLogout}
+                  className='btn btn-outline btn-success'
+                  checked
+                >
+                  Logout
+                </button>
+              </div>
             </li>
           ) : (
             <>
