@@ -11,8 +11,8 @@ import {
 
 const Blog = () => {
   return (
-    <div className='px-4 text-center md:w-10/12 mx-auto lg:mt-16'>
-      <h2 className='text-4xl py-5'>Blogs</h2>
+    <div className='px-4  md:w-10/12 mx-auto lg:mt-16'>
+      <h2 className='text-4xl py-5 md:text-center'>Blogs</h2>
       <Accordion>
         <AccordionItem>
           <AccordionItemHeading>

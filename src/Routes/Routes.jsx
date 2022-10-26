@@ -4,6 +4,7 @@ import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Blog/Blog";
 import Courses from "../Pages/Courses/Courses";
+import Faq from "../Pages/FAQ/Faq";
 import Home from "../Pages/Home/Home";
 import Profile from "../Pages/Profile/Profile";
 import Login from "../Pages/Shared/Login/Login";
@@ -64,8 +65,12 @@ export const router = createBrowserRouter([
           ),
       },
       {
-        path: "/blog",
+        path: "/blogs",
         element: <Blog />,
+      },
+      {
+        path: "/faq",
+        element: <Faq />,
       },
     ],
   },
