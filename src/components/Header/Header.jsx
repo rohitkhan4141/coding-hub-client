@@ -149,13 +149,13 @@ const Header = () => {
                   )}
                 </div>
 
-                <button
+                {/* <button
                   onClick={handleLogout}
                   className='btn btn-outline btn-success'
                   checked
                 >
                   Logout
-                </button>
+                </button> */}
               </div>
             </li>
           ) : (
