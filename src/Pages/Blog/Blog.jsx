@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionItemButton,
   AccordionItemHeading,
-  AccordionItemPanel,
+  AccordionItemPanel
 } from "react-accessible-accordion";
 
 const Blog = () => {
@@ -26,9 +26,7 @@ const Blog = () => {
               permit loading resources. CORS also relies on a mechanism by which
               browsers make a "preflight" request to the server hosting the
               cross-origin resource, in order to check that the server will
-              permit the actual request. In that preflight, the browser sends
-              headers that indicate the HTTP method and headers that will be
-              used in the actual request.
+              permit the actual request.
             </p>
           </AccordionItemPanel>
         </AccordionItem>
@@ -44,9 +42,7 @@ const Blog = () => {
               Indeed, Firebase is a less technical and time-saving alternative
               to writing full-fledged backend code for dynamic apps. You might
               also want to consider leveraging this tool if you eventually wish
-              to host and manage your app in the cloud. Being serverless,
-              Firebase removes the need to worry about the technicalities of
-              cloud server configuration.
+              to host and manage your app in the cloud. 
               <br />
               <br />
               <span>
